@@ -1,0 +1,20 @@
+{
+  "name": "asok",
+  "version": "0.0.0",
+  "description": "Asok is an intern, he has to learn a lot.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": "",
+  "author": "Wouter Roosendaal",
+  "license": "MIT",
+  "readmeFilename": "README.md",
+  "dependencies": {
+    "hapi": "~1.14.0",
+    "lout": "0.4.x",
+    "handlebars": "1.0.x",
+    "mongodb": "1.3.6",
+    "mongoose": "3.6.11"
+  }
+}
