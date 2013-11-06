@@ -13,6 +13,7 @@ module.exports = [
 
 
 var helloProvider= new DtoProvider('localhost', 27017, 'asok');
+helloProvider.setCollectionName('greetings');
 
 function getHello(request) {
   helloProvider.findAll(function(error, items){
