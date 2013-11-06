@@ -18,6 +18,8 @@ But hey, Asok is an intern, he has to learn a lot.
 	* Host: 'localhost'
 	* Port: 27017
 	* Database: 'asok'
+* set the collection to use in the DtoProvider used in simplehello.js
+	* helloProvider.setCollectionName('greetings');
 * Put some greetings in the database:
 
 		$ mongo
