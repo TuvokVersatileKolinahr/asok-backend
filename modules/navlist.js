@@ -70,7 +70,6 @@ function addNavigationlist(request) {
     {linkclass: 'mainlink', linkname: 'Find us on GitHub.',                 linkurl: 'https://github.com/TuvokVersatileKolinahr',     id: 2},
     {linkclass: 'mainlink', linkname: 'Or visit Development',               linkurl: 'http://okki.tuvok.nl',                          id: 3},
     {linkclass: 'mainlink', linkname: 'HAPI docs',                          linkurl: 'http://asok.tuvok.nl/hapi/docs',                id: 4},
-    {linkclass: 'mainlink', linkname: 'Raw JSON of HAPI products',          linkurl: 'http://asok.tuvok.nl/hapi/products',            id: 5},
-    {linkclass: 'mainlink', linkname: 'Building a Products API with HAPI',  linkurl: 'http://spumko.github.io/example/products-api/', id: 6},
-    {linkclass: 'mainlink', linkname: 'New item interface',                 linkurl: 'new_item.html',                                 id: 7}
+    {linkclass: 'mainlink', linkname: 'HAPI instrumental products',         linkurl: 'http://asok.tuvok.nl/instruments.html',         id: 5},
+    {linkclass: 'mainlink', linkname: 'Building a Products API with HAPI',  linkurl: 'http://spumko.github.io/example/products-api/', id: 6}
   ];

@@ -1,4 +1,4 @@
-var HelloProvider = require('./dto/HelloProvider').HelloProvider;
+var DtoProvider = require('./dto/DtoProvider').DtoProvider;
 
 module.exports = [
     {
@@ -12,7 +12,8 @@ module.exports = [
 ];
 
 
-var helloProvider= new HelloProvider('localhost', 27017, 'asok');
+var helloProvider= new DtoProvider('localhost', 27017, 'asok');
+helloProvider.setCollectionName('greetings');
 
 function getHello(request) {
   helloProvider.findAll(function(error, items){

@@ -2,6 +2,7 @@ var Hapi = require('hapi');
 var products = require('./modules/products');
 var navlist = require('./modules/navlist');
 var simplehello = require('./modules/simplehello');
+var recipes = require('./modules/recipes');
 
 // Server config
 var config = { };
@@ -19,6 +20,7 @@ server.pack.require({
 server.addRoutes(products);
 server.addRoutes(navlist);
 server.addRoutes(simplehello);
+server.addRoutes(recipes);
 
 // Start the server
 server.start();
