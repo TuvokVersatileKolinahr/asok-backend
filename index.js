@@ -17,10 +17,10 @@ server.pack.require({
       }
   });
 
-server.addRoutes(products);
-server.addRoutes(navlist);
-server.addRoutes(simplehello);
-server.addRoutes(recipes);
+server.route(products);
+server.route(navlist);
+server.route(simplehello);
+server.route(recipes);
 
 // Start the server
 server.start();

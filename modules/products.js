@@ -21,7 +21,7 @@ module.exports = [
         method: 'POST', path: '/products/delete',
         config: {
             handler: delProduct,
-            payload: 'parse',
+            payload: {'parse': true},
             validate: {
                 payload: { id: Types.String().required() } 
             }
@@ -31,7 +31,7 @@ module.exports = [
         method: 'POST', path: '/products',
         config: {
             handler: addProduct,
-            payload: 'parse',
+            payload: {'parse': true},
             validate: {
                 payload: { name: Types.String().required().min(3) } 
             }
@@ -39,14 +39,14 @@ module.exports = [
     }
 ];
 
-function getProducts(request) {
+function getProducts(request, reply) {
 
     if (request.query.name) {
-        request.reply(findProducts(request.query.name));
+        reply(findProducts(request.query.name));
     }
     else {
       productProvider.findAll(function(error, items){
-        request.reply(items);
+        reply(items);
       });
     }
 }
@@ -63,18 +63,18 @@ function findProducts(name) {
 
 }
 
-function getProduct(request) {
+function getProduct(request, reply) {
   productProvider.findAll(function(error, products){
 
     var product = products.filter(function(p) {
         return p.id === parseInt(request.params.id);
     }).pop();
 
-    request.reply(product);
+    reply(product);
   });
 }
 
-function addProduct(request) {
+function addProduct(request, reply) {
   productProvider.findAll(function(error, products){
     if (products.length == 0)
     {
@@ -89,13 +89,13 @@ function addProduct(request) {
         };
     }
     productProvider.save(product, function (argument) {
-        request.reply([{status:'ok',product:product}]);
+        reply([{status:'ok',product:product}]);
     });
 
   });
 }
 
-function delProduct(request) {
+function delProduct(request, reply) {
     delid = request.payload.id;
     productProvider.findAll(function(error, products){
 
@@ -104,7 +104,7 @@ function delProduct(request) {
         }).pop();
 
         productProvider.delete(product._id, function (argument) {
-            request.reply([{status:'ok',product_id:delid}]);
+            reply([{status:'ok',product_id:delid}]);
         });
     });
 

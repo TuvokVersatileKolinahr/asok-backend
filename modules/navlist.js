@@ -18,7 +18,7 @@ module.exports = [
         method: 'POST', path: '/navlist',
         config: {
             handler: addNavigationlist,
-            payload: 'parse',
+            payload: {'parse': true},
             validate: {
                 payload: { name: Types.String().required().min(3) } 
             }
@@ -26,13 +26,13 @@ module.exports = [
     }
 ];
 
-function getNavigationlists(request) {
+function getNavigationlists(request, reply) {
 
     if (request.query.name) {
-        request.reply(findNavigationlists(request.query.name));
+        reply(findNavigationlists(request.query.name));
     }
     else {
-        request.reply(navigationlists);
+        reply(navigationlists);
     }
 }
 
@@ -43,16 +43,16 @@ function findNavigationlists(name) {
     });
 }
 
-function getNavigationlist(request) {
+function getNavigationlist(request, reply) {
 
     var navigationlist = navigationlists.filter(function(p) {
         return p.id === parseInt(request.params.id);
     }).pop();
 
-    request.reply(navigationlist);
+    reply(navigationlist);
 }
 
-function addNavigationlist(request) {
+function addNavigationlist(request, reply) {
 
     var navigationlist = {
         id: navigationlists[navigationlists.length - 1].id + 1,
@@ -61,7 +61,7 @@ function addNavigationlist(request) {
 
     navigationlists.push(navigationlist);
 
-    request.reply(navigationlist).code(201).header('Location,: /navigationlists/' + navigationlist.id);
+    reply(navigationlist).code(201).header('Location,: /navigationlists/' + navigationlist.id);
 }
 
   // mock object for the list of urls in the navigation list
